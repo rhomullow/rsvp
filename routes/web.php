@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','Site\EventController@index')->name('welcome');
+Route::get('out','Site\EventController@out')->name('out');
+Route::resource('quest','Site\QuestController')->only(['index', 'store']);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
