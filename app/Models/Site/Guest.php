@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Guest extends Model
 {
-    $fillable = ['name','answers'];
+    protected $fillable = ['name','answers'];
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Site;
 
 use Illuminate\Http\Request;
+use App\Models\Site\Guest;
 use App\Http\Controllers\Controller;
 
 class QuestController extends Controller
@@ -40,6 +41,8 @@ class QuestController extends Controller
         if($data['q3'] == 'Umbrella'){
             $answers++;
         }
+        $data['answers'] = $answers;
+        $insert = Guest::create($data);
 
         if($answers == 0){
             return view('zero');
