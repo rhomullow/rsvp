@@ -14,7 +14,24 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Acertos</th>
+                                <th>Quando</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($data as $guest)
+                            <tr>
+                                <td>{{$guest->name}}</td>
+                                <td>{{$guest->answers}}</td>
+                                <td>{{$guest->created_at->format('d/m/Y')}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
