@@ -42,7 +42,11 @@ class QuestController extends Controller
             $answers++;
         }
         $data['answers'] = $answers;
-        $insert = Guest::create($data);
+
+        $find = Guest::where('name', $data['name'])->count();
+
+        if(!$find)
+            $insert = Guest::create($data);
 
         if($answers == 0){
             return view('zero');

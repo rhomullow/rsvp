@@ -24,8 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = Guest::all();
-        
+        $data = Guest::orderBy('name')->get();
+
         return view('home',compact('data'));
     }
 }
