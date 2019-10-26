@@ -3,14 +3,12 @@
 @section('content')
 <section id="wrap">
 	<section id="content">
-
 		<section class="text-content">
-		
-			<form method="POST" action="{{ route('quest.store') }}">
+			<form method="POST" action="{{ route('quest.store') }}" name="quest">
 				{{ csrf_field() }}
-
+				<input type="hidden" name="opt" value="yes">
 				<label class="field a-field a-field_a1">
-					<input class="field__input a-field__input" name="name" placeholder="Você era Srta (o) o que?" required maxlength="100">
+					<input class="field__input a-field__input" id="name" name="name" placeholder="Você era Srta (o) o que?" required maxlength="100">
 					<span class="a-field__label-wrap">
 						<span class="a-field__label">Seu Nome</span>
 					</span>
@@ -80,9 +78,26 @@
 					</label>
 				</div>
 		
-				<button class="bred" type="submit">Enviar e confirmar</button>
+				<button class="btn bred" type="submit">Enviar e confirmar</button>
 			</form>
+			<center>
+				<button onclick='return validateForm()' class="emo-jump">Não sou emo, mas quero ir</button>
+			</center>
 		</section>	
 	</section>	
 </section>
 @endsection
+
+@push('scripts')
+<script>
+function validateForm() {
+  var x = document.forms["quest"]["name"].validity.valueMissing;
+  if (x) {
+    alert("Preencha seu nome");
+    return false;
+  }
+  document.forms["quest"]["opt"].value = 'NO';
+  document.forms["quest"].submit()
+}
+</script>
+@endpush

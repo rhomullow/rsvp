@@ -30,17 +30,19 @@ class QuestController extends Controller
 
         $answers = 0;
 
-        if($data['q1'] == 'Helena'){
-            $answers++;
+        if($data['opt'] !== 'NO'){
+
+            if($data['q1'] == 'Helena')
+                $answers++;
+
+            if($data['q2'] == 'Liza')
+                $answers++;
+
+            if($data['q3'] == 'Umbrella')
+                $answers++;
+
         }
 
-        if($data['q2'] == 'Liza'){
-            $answers++;
-        }
-
-        if($data['q3'] == 'Umbrella'){
-            $answers++;
-        }
         $data['answers'] = $answers;
 
         $find = Guest::where('name', $data['name'])->count();
@@ -48,20 +50,17 @@ class QuestController extends Controller
         if(!$find)
             $insert = Guest::create($data);
 
-        if($answers == 0){
+        if($answers == 0)
             return view('zero');
-        }
 
-        if($answers == 1) {
+        if($answers == 1)
             return view('one');
-        }
 
-        if($answers == 2) {
+        if($answers == 2)
             return view('two');
-        }
 
-        if($answers == 3) {
+        if($answers == 3)
             return view('three');
-        }
+
     }
 }

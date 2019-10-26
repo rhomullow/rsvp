@@ -50,7 +50,7 @@
 			width: 60%
 		}
 
-		button{
+		button.btn{
 			padding: 10px 40px;
 			border-radius: 50px;
 			text-transform: uppercase;
@@ -67,7 +67,8 @@
 			background: rgba(70, 70, 70, 0.7);
 		}
 
-		a.emo-jump{
+		button.emo-jump{
+			background: none;
 			text-transform: uppercase;
 			text-decoration: underline;
 			text-align: center;

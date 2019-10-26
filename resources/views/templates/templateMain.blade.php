@@ -14,6 +14,7 @@
 	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" name="viewport">
 	<link rel="stylesheet" href="{{asset('css/style.css')}}" type="text/css" charset="utf-8" />
 	<title>@isset($title) {{ $title }} @endisset {{ config('app.name', 'Vamos Festejar Comigo?') }}</title>
+	@stack('scripts')
 </head>
 <body>
 	@yield('content')
